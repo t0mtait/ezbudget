@@ -1,25 +1,13 @@
-import {
-  Button,
-  Checkbox,
-  FileInput,
-  Label,
-  Radio,
-  RangeSlider,
-  Select,
-  Textarea,
-  TextInput,
-  ToggleSwitch,
-  ButtonGroup,
-} from "flowbite-react";
+import { Button, TextInput, ButtonGroup } from "flowbite-react";
 
 export default function TransactionCreator() {
   return (
-    <form className="flex w-full flex-col gap-4">
-      <h1 className="text-white">EZ Budget v0.0.1</h1>
+    <form className="mb-3 flex w-full flex-col gap-4">
       <div>
         <TextInput
           id="productName"
           type="text"
+          color="success"
           placeholder="Product / Service Name"
           required
         />
@@ -28,6 +16,7 @@ export default function TransactionCreator() {
         <TextInput
           id="storeName"
           type="text"
+          color="success"
           placeholder="Store / Provider Name"
           required
         />
@@ -37,19 +26,20 @@ export default function TransactionCreator() {
         <TextInput
           id="amount"
           type="number"
+          color="success"
           placeholder="Amount spent"
           required
         />
       </div>
 
       <ButtonGroup type="submit">
-        <Button color="yellow" className="w-1/3">
+        <Button color="red" outline className="w-1/3">
           Want
         </Button>
-        <Button color="blue" className="w-1/3">
+        <Button color="blue" outline className="w-1/3">
           Need
         </Button>
-        <Button color="green" className="w-1/3">
+        <Button color="green" outline className="w-1/3">
           Investment
         </Button>
       </ButtonGroup>
