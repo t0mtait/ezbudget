@@ -22,6 +22,9 @@ export default function Transactions() {
       <Table striped>
         <TableBody className="divide-y">
           <TableRow>
+            <TableCell className="font-bold text-white">
+              Purchase Date
+            </TableCell>
             <TableCell className="font-bold text-white">Product Name</TableCell>
             <TableCell className="font-bold text-white">Store Name</TableCell>
             <TableCell className="font-bold text-white">Category</TableCell>
@@ -29,6 +32,7 @@ export default function Transactions() {
           </TableRow>
           {transactions.map((tx, idx) => (
             <TableRow key={idx}>
+              <TableCell>{tx.date}</TableCell>
               <TableCell>{tx.product}</TableCell>
               <TableCell>{tx.store}</TableCell>
               <TableCell>{tx.category}</TableCell>

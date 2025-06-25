@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
-import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
+import {
+  DynamoDBClient,
+  PutItemCommand,
+  ScanCommand,
+} from "@aws-sdk/client-dynamodb";
 
 const client = new DynamoDBClient({
   region: process.env.AWS_REGION,
@@ -8,6 +12,31 @@ const client = new DynamoDBClient({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
+
+export async function POST(req) {
+  try {
+    const body = await req.json();
+    const now = Date.now();
+    const random = Math.floor(Math.random() * 1e6);
+    const id = `${now}${random}`;
+    const command = new PutItemCommand({
+      TableName: "ezbudget-transactions",
+      Item: {
+        product: { S: body.product },
+        store: { S: body.store },
+        date: { S: body.date },
+        category: { S: body.category },
+        cost: { N: String(body.amount) },
+        id: { N: id },
+      },
+    });
+    await client.send(command);
+    console.log("yippee");
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
 
 export async function GET() {
   try {
@@ -21,6 +50,7 @@ export async function GET() {
       store: item.store.S,
       amount: item.cost.N,
       category: item.category.S,
+      date: item.date.S,
     }));
 
     return NextResponse.json(transactions);
