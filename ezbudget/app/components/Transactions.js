@@ -18,8 +18,8 @@ export default function Transactions() {
     fetchTransactions();
   }, []);
   return (
-    <div className="w-full">
-      <Table striped>
+    <div className="w-1/2">
+      <Table className="!bg-black text-white">
         <TableBody className="divide-y">
           <TableRow>
             <TableCell className="font-bold text-white">
@@ -31,7 +31,7 @@ export default function Transactions() {
             <TableCell className="font-bold text-white">Cost</TableCell>
           </TableRow>
           {transactions.map((tx, idx) => (
-            <TableRow key={idx}>
+            <TableRow key={idx} className="text-white">
               <TableCell>{tx.date}</TableCell>
               <TableCell>{tx.product}</TableCell>
               <TableCell>{tx.store}</TableCell>

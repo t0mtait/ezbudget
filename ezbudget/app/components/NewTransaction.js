@@ -25,7 +25,7 @@ export default function TransactionCreator() {
     });
   }
   return (
-    <form className="mb-3 flex w-full flex-col gap-4" onSubmit={handleSubmit}>
+    <form className="mb-3 flex w-1/2 flex-col gap-4" onSubmit={handleSubmit}>
       <div>
         <TextInput
           id="productName"
@@ -84,7 +84,11 @@ export default function TransactionCreator() {
         <option>Investment</option>
       </Select>
 
-      <Button color="green" type="submit" outline className="w-full">
+      <Button
+        color="green"
+        type="submit"
+        className="w-full !bg-black hover:!bg-green-700"
+      >
         Submit
       </Button>
     </form>

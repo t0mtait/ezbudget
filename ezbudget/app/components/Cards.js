@@ -69,58 +69,50 @@ export default function Cards() {
     fetchAndSum();
   }, []);
   return (
-    <div className="mb-2 flex">
-      <Card href="#" className="mx-2 max-w-sm">
+    <div className="mb-2 flex w-3/4 justify-center">
+      <Card href="#" className="mx-2 max-w-sm !bg-black">
         <h5 className="text-md font-bold tracking-tight text-gray-500">
           This Month
         </h5>
-        <h5 className="m-0 text-2xl font-bold text-white">Total Spent</h5>
-        <h1 className="text-2xl font-bold text-white">{totalSpent}$</h1>
+        <h5 className="m-0 text-2xl font-bold text-white">Spent</h5>
+        <h1 className="text-3xl font-bold text-white">{totalSpent}$</h1>
       </Card>
-      <Card href="#" className="mx-2 max-w-sm">
+      <Card href="#" className="mx-2 max-w-sm !bg-black">
         <h5 className="text-md font-bold tracking-tight text-gray-500">
           This Month
         </h5>
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Spent: Want
         </h5>
-        <h1 className="text-2xl font-bold text-white">{wantSpent}$</h1>
+        <h1 className="text-3xl font-bold text-white">{wantSpent}$</h1>
       </Card>
-      <Card href="#" className="mx-2 max-w-sm">
+      <Card href="#" className="mx-2 max-w-sm !bg-black">
         <h5 className="text-md font-bold tracking-tight text-gray-500">
           This Month
         </h5>
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Spent: Need
         </h5>
-        <h1 className="text-2xl font-bold text-white">{needSpent}$</h1>
+        <h1 className="text-3xl font-bold text-white">{needSpent}$</h1>
       </Card>
-      <Card href="#" className="mx-2 max-w-sm">
+      <Card href="#" className="mx-2 max-w-sm !bg-black">
         <h5 className="text-md font-bold tracking-tight text-gray-500">
           This Month
         </h5>
         <h5 className="text-2xl font-bold tracking-tight text-white">
           Invested
         </h5>
-        <h1 className="text-2xl font-bold text-white">{invested}$</h1>
+        <h1 className="text-3xl font-bold text-white">{invested}$</h1>
       </Card>
-      <Card href="#" className="mx-2 max-w-sm">
-        <h5 className="text-md font-bold tracking-tight text-gray-500">
-          vs. Last Month
-        </h5>
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Monthly diff.
-        </h5>
-        <h1 className="text-2xl font-bold text-white">0$</h1>
-      </Card>
-      <Card href="#" className="mx-2 max-w-sm">
+
+      <Card href="#" className="mx-2 max-w-sm !bg-black">
         <h5 className="text-md font-bold tracking-tight text-gray-500">
           This Month
         </h5>
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Daily Avg.
         </h5>
-        <h1 className="text-2xl font-bold text-white">{avgSpentDaily}$</h1>
+        <h1 className="text-3xl font-bold text-white">{avgSpentDaily}$</h1>
       </Card>
     </div>
   );
