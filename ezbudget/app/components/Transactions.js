@@ -36,7 +36,7 @@ export default function Transactions() {
               <TableCell>{tx.product}</TableCell>
               <TableCell>{tx.store}</TableCell>
               <TableCell>{tx.category}</TableCell>
-              <TableCell>{tx.amount}</TableCell>
+              <TableCell>{tx.amount}$</TableCell>
             </TableRow>
           ))}
         </TableBody>

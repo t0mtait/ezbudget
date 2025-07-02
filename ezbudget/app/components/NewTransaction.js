@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import { Button, TextInput, ButtonGroup, Select } from "flowbite-react";
+import { Button, TextInput, Select } from "flowbite-react";
 
 export default function TransactionCreator() {
   const [productName, setProductName] = useState("");

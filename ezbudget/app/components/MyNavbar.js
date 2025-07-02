@@ -1,10 +1,4 @@
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarCollapse,
-  NavbarLink,
-  NavbarToggle,
-} from "flowbite-react";
+import { Navbar, NavbarBrand } from "flowbite-react";
 import Link from "next/link";
 
 export default function MyNavbar() {
