@@ -9,7 +9,7 @@ export default function Cards() {
   const [invested, setInvested] = useState(0);
   const [avgSpentDaily, setAvgSpentDaily] = useState(0);
   const [currentMonthName, setCurrentMonthName] = useState("");
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [currentYear] = useState(new Date().getFullYear());
   useEffect(() => {
     async function fetchAndSum() {
       const res = await fetch("/api/transactions");

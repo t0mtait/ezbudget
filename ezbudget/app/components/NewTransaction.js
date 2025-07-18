@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import { Button, TextInput, Select } from "flowbite-react";
+import { Button, TextInput } from "flowbite-react";
 
 export default function TransactionCreator() {
   const [productName, setProductName] = useState("");
@@ -14,7 +14,7 @@ export default function TransactionCreator() {
     const formattedDate = today.toISOString().split("T")[0];
     setDate(formattedDate);
   }
-  const [category, setCategory] = useState("Want");
+  const [setCategory] = useState("Want");
 
 
   async function handleSubmit(selectedCategory) {
