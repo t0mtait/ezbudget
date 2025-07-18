@@ -8,6 +8,8 @@ export default function Cards() {
   const [needSpent, setNeedSpent] = useState(0);
   const [invested, setInvested] = useState(0);
   const [avgSpentDaily, setAvgSpentDaily] = useState(0);
+  const [currentMonthName, setCurrentMonthName] = useState("");
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   useEffect(() => {
     async function fetchAndSum() {
       const res = await fetch("/api/transactions");
@@ -16,6 +18,23 @@ export default function Cards() {
       const currentMonth = now.getMonth();
       const currentYear = now.getFullYear();
       const currentDay = now.getDate();
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ]
+      const currentMonthName = months[currentMonth];
+      setCurrentMonthName(currentMonthName);
+
 
       const sum = (Array.isArray(data) ? data : [])
         .filter((tx) => {
@@ -71,33 +90,33 @@ export default function Cards() {
   return (
     <div className="mb-2 flex w-3/4 justify-center">
       <Card href="#" className="mx-2 max-w-sm !bg-black">
-        <h5 className="text-md font-bold tracking-tight text-gray-500">
-          This Month
+        <h5 className="text-lg font-bold tracking-tight text-gray-500">
+        {currentMonthName} {currentYear}
         </h5>
         <h5 className="m-0 text-2xl font-bold text-white">Spent</h5>
         <h1 className="text-3xl font-bold text-white">{totalSpent}$</h1>
       </Card>
       <Card href="#" className="mx-2 max-w-sm !bg-black">
-        <h5 className="text-md font-bold tracking-tight text-gray-500">
-          This Month
+        <h5 className="text-lg font-bold tracking-tight text-gray-500">
+          {currentMonthName} {currentYear}
         </h5>
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="text-2xl font-bold tracking-tight text-white">
           Spent: Want
         </h5>
         <h1 className="text-3xl font-bold text-white">{wantSpent}$</h1>
       </Card>
       <Card href="#" className="mx-2 max-w-sm !bg-black">
-        <h5 className="text-md font-bold tracking-tight text-gray-500">
-          This Month
+        <h5 className="text-lg font-bold tracking-tight text-gray-500">
+          {currentMonthName} {currentYear}
         </h5>
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="text-2xl font-bold tracking-tight text-white">
           Spent: Need
         </h5>
         <h1 className="text-3xl font-bold text-white">{needSpent}$</h1>
       </Card>
       <Card href="#" className="mx-2 max-w-sm !bg-black">
-        <h5 className="text-md font-bold tracking-tight text-gray-500">
-          This Month
+        <h5 className="text-lg font-bold tracking-tight text-gray-500">
+          {currentMonthName} {currentYear}
         </h5>
         <h5 className="text-2xl font-bold tracking-tight text-white">
           Invested
@@ -106,10 +125,10 @@ export default function Cards() {
       </Card>
 
       <Card href="#" className="mx-2 max-w-sm !bg-black">
-        <h5 className="text-md font-bold tracking-tight text-gray-500">
-          This Month
+        <h5 className="text-lg font-bold tracking-tight text-gray-500">
+          {currentMonthName} {currentYear}
         </h5>
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="text-2xl font-bold tracking-tight text-white">
           Daily Avg.
         </h5>
         <h1 className="text-3xl font-bold text-white">{avgSpentDaily}$</h1>

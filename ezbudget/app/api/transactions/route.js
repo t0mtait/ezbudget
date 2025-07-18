@@ -45,7 +45,11 @@ export async function GET() {
     });
     const data = await client.send(command);
 
+    // sort transactions by date
+    data.Items.sort((a, b) => new Date(b.date.S) - new Date(a.date.S));
+
     const transactions = (data.Items || []).map((item) => ({
+      id: item.id.N,
       product: item.product.S,
       store: item.store.S,
       amount: item.cost.N,

@@ -5,7 +5,7 @@ import Cards from "./components/Cards";
 import MyNavbar from "./components/MyNavbar";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-green-400 px-8 py-24">
+    <main className="flex min-h-screen flex-col items-center justify-center dark:bg-black px-8 py-24">
       <DarkThemeToggle className="absolute top-4 right-4" />
       <MyNavbar />
       <Cards />
